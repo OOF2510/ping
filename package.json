@@ -1,0 +1,19 @@
+{
+  "name": "@oof2510/ping",
+  "version": "1.0.0",
+  "description": "A module to get the ping of a domain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oof2510/ping.git"
+  },
+  "author": "OOF2510",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/oof2510/ping/issues"
+  },
+  "homepage": "https://github.com/oof2510/ping#readme"
+}
