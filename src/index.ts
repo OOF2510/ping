@@ -1,15 +1,15 @@
 const os = require("os");
-const { promisify } = require("util");
+import { promisify } from "util";
 const exec = promisify(require("child_process").exec);
 
 exports.ping = async function (domain : String) {
-  var PING ;
+  let PING : String ;
 
   if (os.platform() == "win32")
     PING = await exec(`ping -n 1 ${domain} | findstr time=`);
   else PING = await exec(`ping -c 1 ${domain} | grep time=`);
 
-  var Ping = PING.stdout.trim();
+  let Ping = PING.stdout.trim();
 
   var ping : Number;
 
