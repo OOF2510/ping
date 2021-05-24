@@ -21,7 +21,8 @@ npm i @oof2510/ping
 ```js
 const { ping } = require("@oof2510/ping");
 
-let googlePing = await ping("google.com");
-
-console.log(googlePing);
+async () => {
+  let googlePing = await ping("google.com");
+  console.log(googlePing);
+}
 ```
