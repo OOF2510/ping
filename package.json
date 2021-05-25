@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/oof2510/ping/issues"
   },
-  "homepage": "https://github.com/oof2510/ping#readme",
-  "devDependencies": {
-    "typescript": "^4.2.4",
-    "tsc": "^2.0.3"
-  }
+  "homepage": "https://github.com/oof2510/ping#readme"
 }
