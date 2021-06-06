@@ -1,6 +1,6 @@
 {
   "name": "@oof2510/ping",
-  "version": "1.1.4",
+  "version": "1.1.7",
   "description": "A module to get the ping of a domain",
   "main": "src/index.ts",
   "scripts": {
