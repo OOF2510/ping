@@ -1,5 +1,5 @@
 const os = require("os");
-import { promisify } from "util";
+const { promisify } = require("util");
 const exec = promisify(require("child_process").exec);
 
 exports.ping = async function (domain: String) {
