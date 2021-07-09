@@ -39,26 +39,41 @@ var promisify = require("util").promisify;
 var exec = promisify(require("child_process").exec);
 exports.ping = function (domain) {
     return __awaiter(this, void 0, void 0, function () {
-        var PING, Ping, ping;
+        var PING, Ping, pingError, ping;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     if (!(os.platform() == "win32")) return [3 /*break*/, 2];
-                    return [4 /*yield*/, exec("ping /n 1 " + domain + " | findstr time=")];
+                    return [4 /*yield*/, exec("ping /n 1 " + domain + " | findstr time=")["catch"](function (error) {
+                            PING = "Error pinging!";
+                            console.error(error);
+                        })];
                 case 1:
                     PING = _a.sent();
                     return [3 /*break*/, 4];
-                case 2: return [4 /*yield*/, exec("ping -c 1 " + domain + " | grep time=")];
+                case 2: return [4 /*yield*/, exec("ping -c 1 " + domain + " | grep time=")["catch"](function (error) {
+                        PING = "Error pinging!";
+                        console.error(error);
+                    })];
                 case 3:
                     PING = _a.sent();
                     _a.label = 4;
                 case 4:
-                    Ping = PING.stdout.trim();
-                    if (os.platform == "win32")
-                        ping = Number(Ping.split("time=").pop().split("ms ")[0]);
+                    if (PING.stdout)
+                        Ping = PING.stdout.trim();
                     else
-                        ping = Number(Ping.split("time=").pop().split(" ms")[0]);
-                    return [2 /*return*/, ping];
+                        pingError = PING;
+                    if (Ping) {
+                        if (os.platform == "win32")
+                            ping = Number(Ping.split("time=").pop().split("ms ")[0]);
+                        else
+                            ping = Number(Ping.split("time=").pop().split(" ms")[0]);
+                    }
+                    if (ping)
+                        return [2 /*return*/, ping];
+                    else if (pingError)
+                        return [2 /*return*/, pingError];
+                    return [2 /*return*/];
             }
         });
     });
