@@ -27,3 +27,16 @@ async function p() {
 }
 p();
 ```
+# Cli usage
+```
+simple-ping [options] [command]
+
+  Commands:
+    help     Display help
+    version  Display version
+
+  Options:
+    -H, --help     Output usage information
+    -h, --host     host to ping
+    -v, --version  Output the version number
+```
